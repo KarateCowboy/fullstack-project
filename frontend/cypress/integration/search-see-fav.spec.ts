@@ -129,12 +129,16 @@ const categories = [
 ]
 context('Search for an image, see results, mark as favorite', () => {
   it('lets me search for an image', () => {
-    const kittySearch = 'chubby applehead siamese'
     const boxesId = 5
     cy.intercept('GET', 'https://api.thecatapi.com/v1/breeds', breedsList)
     cy.intercept('GET', 'https://api.thecatapi.com/v1/categories', categories)
+    cy.intercept('GET', `https://api.thecatapi.com/v1/images/search?breeds_id=${siamese.id}&category_ids=${boxesId}&limit=3`, {
+
+    })
     cy.visit('http://localhost:3000')
     cy.get('#breed-select').select("Siamese").should('have.value', siamese.id)
     cy.get('#category-select').select("boxes").should('have.value', boxesId)
+
+    cy.get('#search-button').click();
   })
 })

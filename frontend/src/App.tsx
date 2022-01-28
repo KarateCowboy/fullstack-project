@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import {HashRouter as Router, Redirect, Route, Switch} from "react-router-dom";
+import {HashRouter as Router, Route} from "react-router-dom";
 import Home from "./pages/home";
 import SearchResults from "./pages/search-results";
 

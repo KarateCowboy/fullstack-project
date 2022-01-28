@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
-import {Button, Grid, TextField, Select} from '@material-ui/core'
-import {Breed, parseBreedsJson} from "../domain/breed"
-import {findAllBreeds, findAllCategories} from "../service"
+import {Button, Grid, Select} from '@material-ui/core'
+import {Breed} from "../domain/breed"
+import {findAllBreeds, findAllCategories, nabTheCats} from "../service"
 import {Category} from "../domain/categories"
 
 
@@ -22,9 +22,6 @@ const Home = function () {
   }
   return <div>
     <Grid container>
-      <Grid item xs={12}>
-        <TextField id="search-input" label="Search term"/>
-      </Grid>
       <Grid item xs={12}>
         <Select
           native
@@ -64,10 +61,11 @@ const Home = function () {
           variant="contained"
           color="secondary"
           onClick={() => {
+            nabTheCats()
             console.log('i just clicked')
           }}
         >
-          Button is here
+          Search right meow!
         </Button>
       </Grid>
     </Grid>
